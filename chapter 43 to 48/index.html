@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Lookup</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .mobile-container { display: flex; gap: 20px; margin-top: 20px; }
+        .card { border: 1px solid #ccc; padding: 10px; text-align: center; cursor: pointer; }
+        img { width: 100px; display: block; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <a href="#" id="myLink">Show an alert box on click on a link.</a>
+
+    <h2>Mobile Phone lookup</h2>
+
+    <div class="mobile-container">
+        <div class="card" onclick="showMobile('iPhone 6 Plus')">
+            <img src="iphone6plus.gif" alt="iPhone">
+            <span>iPhone6Plus.gif</span>
+        </div>
+
+        <div class="card" onclick="showMobile('Galaxy S6 Edge Plus')">
+            <img src="galaxys6edgeplus.gif" alt="Galaxy">
+            <span>GalaxyS6EdgePlus.gif</span>
+        </div>
+
+        <div class="card" onclick="showMobile('V10')">
+            <img src="v10.gif" alt="V10">
+            <span>V10.gif</span>
+        </div>
+    </div>
+
+    <h2>3. Student Records</h2>
+
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>0</td><td>Jhon</td><td>10</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+            <tr><td>1</td><td>Doe</td><td>9</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+            <tr><td>2</td><td>Mark</td><td>10</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+            <tr><td>3</td><td>James</td><td>8</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+            <tr><td>4</td><td>Sara</td><td>10</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+            <tr><td>5</td><td>Zain</td><td>9</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+            <tr><td>6</td><td>Ali</td><td>10</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+            <tr><td>7</td><td>Ayesha</td><td>8</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+            <tr><td>8</td><td>Bilal</td><td>9</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+            <tr><td>9</td><td>Sana</td><td>10</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+        </tbody>
+    </table>
+
+<table border="1" id="studentTable">
+    <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>Jhone</td>
+        <td>10</td>
+        <td><button onclick="deleteRow(this)">Delete</button></td>
+    </tr>
+    </table>
+
+    <div class="task">
+        <h2>4. Change Picture on Mouseover</h2>
+        <p>Hover your mouse over the image to see it change:</p>
+        
+        <img src="https://via.placeholder.com/300x200?text=First+Picture" 
+             id="myImage" 
+             onmouseover="changeImg()" 
+             onmouseout="resetImg()" 
+             alt="Toggle Image">
+    </div>
+
+    <div class="task">
+        <h2>5. Counter (Increase/Decrease)</h2>
+        <div class="counter-container">
+            <button onclick="changeCounter(-1)">Decrease</button>
+            <span id="counterValue" class="count-display">0</span>
+            <button onclick="changeCounter(1)">Increase</button>
+        </div>
+    </div>
+
+    <script>
+        // --- Task 4 Logic ---
+        function changeImg() {
+            // Mouseover par image change karein
+            document.getElementById('myImage').src = "https://via.placeholder.com/300x200?text=Second+Picture";
+        }
+
+        function resetImg() {
+            // Mouseout par pehli image wapas layein
+            document.getElementById('myImage').src = "https://via.placeholder.com/300x200?text=First+Picture";
+        }
+
+
+        // --- Task 5 Logic ---
+        let count = 0;
+        function changeCounter(value) {
+            count += value; // value 1 ya -1 hogi
+            document.getElementById('counterValue').innerText = count;
+        }
+    </script>
+
+    <script>
+        // Row delete karne ka function
+        function deleteRow(btn) {
+            // 'this' (btn) se parent row (tr) tak pohanch kar usay remove karna
+            var row = btn.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
